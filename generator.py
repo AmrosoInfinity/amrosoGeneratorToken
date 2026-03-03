@@ -38,7 +38,7 @@ def show_section():
     print(colorful_section_border() + "\n")
 
 def trigger_github(gen_type):
-    repo = "username/generatorToken"  # ganti dengan repo kamu
+    repo = "AmrosoInfinity/amrosoGeneratorToken"  # ganti dengan repo kamu
     token = os.getenv("GITHUB_TOKEN") # simpan personal access token di Termux
     url = f"https://api.github.com/repos/{repo}/actions/workflows/generator.yml/dispatches"
     headers = {"Authorization": f"token {token}"}
