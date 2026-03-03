@@ -1,0 +1,28 @@
+name: Generator Token
+
+on:
+  workflow_dispatch:
+    inputs:
+      gen_type:
+        description: "Pilih generator (grab/gojek)"
+        required: true
+        default: "grab"
+
+jobs:
+  run-generator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run generator
+        run: |
+          GEN_TYPE=${{ github.event.inputs.gen_type }} python pastebin_fetch.py
